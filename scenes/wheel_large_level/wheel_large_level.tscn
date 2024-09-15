@@ -1,0 +1,166 @@
+[gd_scene load_steps=14 format=3 uid="uid://g48kgs6yt4xe"]
+
+[ext_resource type="Shader" path="res://assets/pixelate_shader.gdshader" id="1_1qapc"]
+[ext_resource type="Texture2D" uid="uid://cshbthp7f30xk" path="res://assets/land-piece.png" id="1_8skps"]
+[ext_resource type="Script" path="res://scenes/wheel_large_level/assets/wheel_large_level.gd" id="1_ip4g8"]
+[ext_resource type="Texture2D" uid="uid://cc81l6rvyx7a7" path="res://assets/background_2.jpeg" id="2_7kf6t"]
+[ext_resource type="Texture2D" uid="uid://bopovnjfj5vr0" path="res://assets/wheel.png" id="2_h33w1"]
+[ext_resource type="Texture2D" uid="uid://b3jooqng8gudi" path="res://scenes/wheel_large_level/assets/land-piece-curved.png" id="2_ruo7t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lq72a"]
+shader = ExtResource("1_1qapc")
+shader_parameter/amount = 75
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prqpv"]
+size = Vector2(1188, 34)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dic0a"]
+friction = 0.9
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyr5m"]
+radius = 38.0
+
+[sub_resource type="GDScript" id="GDScript_pobib"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6mj1e"]
+normal = Vector2(0, 1)
+distance = 84.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kg37s"]
+distance = 84.0
+
+[node name="Level" type="Node2D"]
+position = Vector2(1, 4)
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_lq72a")
+position = Vector2(1597, 152)
+texture = ExtResource("2_7kf6t")
+
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(435, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(133, -7)
+shape = SubResource("RectangleShape2D_prqpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground"]
+position = Vector2(126, 0)
+scale = Vector2(1.316, 1)
+texture = ExtResource("1_8skps")
+
+[node name="ground2" type="StaticBody2D" parent="."]
+position = Vector2(1583, 603)
+rotation = -0.0959931
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(133, -7)
+shape = SubResource("RectangleShape2D_prqpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground2"]
+position = Vector2(126, 0)
+scale = Vector2(1.316, 1)
+texture = ExtResource("1_8skps")
+
+[node name="ground3" type="StaticBody2D" parent="."]
+position = Vector2(2766, 489)
+rotation = -0.0959931
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground3"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(133, -7)
+shape = SubResource("RectangleShape2D_prqpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground3"]
+position = Vector2(126, 0)
+scale = Vector2(1.316, 1)
+texture = ExtResource("1_8skps")
+
+[node name="ground4" type="StaticBody2D" parent="."]
+position = Vector2(-119, 257)
+rotation = 1.5708
+scale = Vector2(0.55, 0.55)
+
+[node name="Sprite2D" type="Sprite2D" parent="ground4"]
+position = Vector2(126, 0)
+scale = Vector2(1.316, 1)
+texture = ExtResource("2_ruo7t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground4"]
+position = Vector2(132.445, -37.884)
+rotation = -1.5708
+scale = Vector2(14.178, 62.843)
+build_mode = 1
+polygon = PackedVector2Array(9.12602, 8.51054, 6.17651, 8.45267, 3.8682, 8.22122, 1.55988, 7.8451, -0.363713, 7.38219, -2.15907, 6.83247, -3.95442, 6.10917, -5.4933, 5.27014, -6.90394, 4.37324, -8.31457, 2.95557, -9.08401, 1.56683, -9.34049, 0.438474, -9.34049, -0.747744, -8.95577, -1.7893, -8.44281, -2.80193, -7.67337, -3.72775, -6.90394, -4.39319, -6.1345, -4.9429, -4.59562, -5.86873, -2.92851, -6.62097, -0.748432, -7.34427, 0.790443, -7.74932, 2.32932, -8.06757, 3.73996, -8.2701, 4.76587, -8.41476, 5.92003, -8.50156, 7.07419, -8.55942, 7.97186, -8.58835, 9.25426, -8.58835, 9.25426, -9.28272, -8.05809, -7.14175, -9.98169, 0.00449181, -7.41689, 7.06393, -1.00491, 8.79986)
+
+[node name="wheel" type="RigidBody2D" parent="."]
+position = Vector2(535, 100)
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_dic0a")
+script = ExtResource("1_ip4g8")
+
+[node name="wheel_CollisionShape2D" type="CollisionShape2D" parent="wheel"]
+shape = SubResource("CircleShape2D_xyr5m")
+script = SubResource("GDScript_pobib")
+
+[node name="wheel_Sprite2D" type="Sprite2D" parent="wheel"]
+position = Vector2(0, -1)
+texture = ExtResource("2_h33w1")
+
+[node name="Camera2D" type="Camera2D" parent="wheel"]
+position = Vector2(0, -4)
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+position_smoothing_speed = 40.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.1
+drag_right_margin = 0.3
+drag_bottom_margin = 0.1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(325, -109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-184, -150)
+shape = SubResource("WorldBoundaryShape2D_6mj1e")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-197, 796)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1, -29)
+shape = SubResource("WorldBoundaryShape2D_kg37s")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-304, 317)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-1, -29)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_kg37s")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(3591, 225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-1, -29)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_kg37s")

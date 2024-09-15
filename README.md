@@ -9,6 +9,7 @@ A list of scenes and what they test
 - `ui` - all ui related scenes
 - `wheel_camera_follow_level` - testing `wheel_level` but with the camera following the wheel
 - `wheel_level` - testing a RigidBody2D and physics interations like friction, bounce. Includes left, right, down, and jump controls.
+- `wheel_large_level` - testing building a larger level the player can explore
 
 ## Notes
 Random notes and things learned from doing this project
