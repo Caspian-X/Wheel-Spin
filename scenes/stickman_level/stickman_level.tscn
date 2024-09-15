@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwnshdntyi6ub"]
+
+[ext_resource type="Script" path="res://scenes/stickman_level/assets/stickman_rigidbody.gd" id="1_sqfoe"]
+[ext_resource type="Texture2D" uid="uid://f0apsdilvqri" path="res://assets/stickman_1.png" id="2_w7fyw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym5jf"]
+size = Vector2(1188.71, 59.427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17251"]
+size = Vector2(1188.71, 59.427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4h03"]
+size = Vector2(660.827, 59.427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqilg"]
+size = Vector2(660.827, 59.427)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5nyk1"]
+friction = 0.9
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tijb"]
+size = Vector2(16.5, 49)
+
+[sub_resource type="GDScript" id="GDScript_pobib"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Level" type="Node2D"]
+position = Vector2(1, 4)
+
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(435, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(134, 6)
+shape = SubResource("RectangleShape2D_ym5jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground/CollisionShape2D"]
+
+[node name="ground2" type="StaticBody2D" parent="."]
+position = Vector2(569, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_17251")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground2/CollisionShape2D"]
+
+[node name="ground3" type="StaticBody2D" parent="."]
+position = Vector2(1160, 554)
+
+[node name="CollisionShape2D_3" type="CollisionShape2D" parent="ground3"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-14, -230)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_w4h03")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground3/CollisionShape2D_3"]
+
+[node name="ground4" type="StaticBody2D" parent="."]
+position = Vector2(46, 485)
+
+[node name="CollisionShape2D_3" type="CollisionShape2D" parent="ground4"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-42.0001, -160.413)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_mqilg")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground4/CollisionShape2D_3"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(559, 74)
+physics_material_override = SubResource("PhysicsMaterial_5nyk1")
+script = ExtResource("1_sqfoe")
+
+[node name="stickman_1_CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_4tijb")
+script = SubResource("GDScript_pobib")
+
+[node name="stickman_1" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_w7fyw")
