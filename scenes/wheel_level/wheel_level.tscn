@@ -1,18 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://divetgpr7j1ug"]
+[gd_scene load_steps=11 format=3 uid="uid://divetgpr7j1ug"]
 
 [ext_resource type="Script" path="res://scenes/wheel_level/assets/wheel.gd" id="1_dl4xk"]
 [ext_resource type="Texture2D" uid="uid://bopovnjfj5vr0" path="res://assets/wheel.png" id="3_ny21h"]
+[ext_resource type="Texture2D" uid="uid://cshbthp7f30xk" path="res://assets/land-piece.png" id="3_vfpt6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2bqr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep2w7"]
 size = Vector2(1188.71, 59.427)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqeri"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw0ba"]
 size = Vector2(1188.71, 59.427)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sswyo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoclt"]
 size = Vector2(660.827, 59.427)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6r0y"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s75uk"]
 size = Vector2(660.827, 59.427)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cdf80"]
@@ -44,10 +45,13 @@ position = Vector2(435, 648)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(134, 6)
-shape = SubResource("RectangleShape2D_h2bqr")
+position = Vector2(134, 7.995)
+shape = SubResource("RectangleShape2D_ep2w7")
 
-[node name="Sprite2D" type="Sprite2D" parent="ground/CollisionShape2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="ground"]
+position = Vector2(128, 21)
+scale = Vector2(1.315, 1.695)
+texture = ExtResource("3_vfpt6")
 
 [node name="ground2" type="StaticBody2D" parent="."]
 position = Vector2(569, -22)
@@ -55,9 +59,12 @@ position = Vector2(569, -22)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1, 2)
-shape = SubResource("RectangleShape2D_sqeri")
+shape = SubResource("RectangleShape2D_kw0ba")
 
-[node name="Sprite2D" type="Sprite2D" parent="ground2/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="ground2"]
+position = Vector2(-6.50003, 14.5)
+scale = Vector2(1.315, 1.695)
+texture = ExtResource("3_vfpt6")
 
 [node name="ground3" type="StaticBody2D" parent="."]
 position = Vector2(1160, 554)
@@ -66,9 +73,13 @@ position = Vector2(1160, 554)
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-14, -230)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_sswyo")
+shape = SubResource("RectangleShape2D_hoclt")
 
-[node name="Sprite2D" type="Sprite2D" parent="ground3/CollisionShape2D_3"]
+[node name="Sprite2D" type="Sprite2D" parent="ground3"]
+position = Vector2(-2.00003, -212.308)
+rotation = 4.71239
+scale = Vector2(0.769616, 1.695)
+texture = ExtResource("3_vfpt6")
 
 [node name="ground4" type="StaticBody2D" parent="."]
 position = Vector2(46, 485)
@@ -77,9 +88,13 @@ position = Vector2(46, 485)
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-42.0001, -160.413)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_g6r0y")
+shape = SubResource("RectangleShape2D_s75uk")
 
-[node name="Sprite2D" type="Sprite2D" parent="ground4/CollisionShape2D_3"]
+[node name="Sprite2D" type="Sprite2D" parent="ground4"]
+position = Vector2(-55, -183)
+rotation = 1.5708
+scale = Vector2(0.769616, 1.695)
+texture = ExtResource("3_vfpt6")
 
 [node name="wheel" type="RigidBody2D" parent="."]
 position = Vector2(535, 100)

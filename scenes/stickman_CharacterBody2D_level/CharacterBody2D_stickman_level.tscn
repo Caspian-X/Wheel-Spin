@@ -1,26 +1,83 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba73m7cawatci"]
+[gd_scene load_steps=9 format=3 uid="uid://ba73m7cawatci"]
 
 [ext_resource type="Script" path="res://scenes/stickman_CharacterBody2D_level/assets/sitckman_characterbody2d.gd" id="1_0astf"]
+[ext_resource type="Texture2D" uid="uid://cshbthp7f30xk" path="res://assets/land-piece.png" id="1_pyxog"]
 [ext_resource type="Texture2D" uid="uid://f0apsdilvqri" path="res://assets/stickman_1.png" id="2_rw6bq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuk5i"]
+size = Vector2(1188.71, 59.427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n3od"]
+size = Vector2(1188.71, 59.427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2seca"]
+size = Vector2(660.827, 59.427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hjqk"]
+size = Vector2(660.827, 59.427)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrlv4"]
 radius = 6.23
 height = 52.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_orlac"]
-size = Vector2(1188.71, 59.427)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2cgs"]
-size = Vector2(1188.71, 59.427)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjx8v"]
-size = Vector2(660.827, 59.427)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u8mi"]
-size = Vector2(660.827, 59.427)
-
 [node name="Level" type="Node2D"]
 position = Vector2(1, 4)
+
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(435, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(134, 7.995)
+shape = SubResource("RectangleShape2D_cuk5i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ground"]
+position = Vector2(128, 21)
+scale = Vector2(1.315, 1.695)
+texture = ExtResource("1_pyxog")
+
+[node name="ground2" type="StaticBody2D" parent="."]
+position = Vector2(569, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_5n3od")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground2"]
+position = Vector2(-6.50003, 14.5)
+scale = Vector2(1.315, 1.695)
+texture = ExtResource("1_pyxog")
+
+[node name="ground3" type="StaticBody2D" parent="."]
+position = Vector2(1160, 554)
+
+[node name="CollisionShape2D_3" type="CollisionShape2D" parent="ground3"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-14, -230)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_2seca")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground3"]
+position = Vector2(-2.00003, -212.308)
+rotation = 4.71239
+scale = Vector2(0.769616, 1.695)
+texture = ExtResource("1_pyxog")
+
+[node name="ground4" type="StaticBody2D" parent="."]
+position = Vector2(46, 485)
+
+[node name="CollisionShape2D_3" type="CollisionShape2D" parent="ground4"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-42.0001, -160.413)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3hjqk")
+
+[node name="Sprite2D" type="Sprite2D" parent="ground4"]
+position = Vector2(-55, -183)
+rotation = 1.5708
+scale = Vector2(0.769616, 1.695)
+texture = ExtResource("1_pyxog")
 
 [node name="stickman_1_Body2D" type="CharacterBody2D" parent="."]
 position = Vector2(534, 261)
@@ -33,45 +90,3 @@ shape = SubResource("CapsuleShape2D_lrlv4")
 [node name="stickman_1" type="Sprite2D" parent="stickman_1_Body2D"]
 position = Vector2(0.5, -0.5)
 texture = ExtResource("2_rw6bq")
-
-[node name="ground" type="StaticBody2D" parent="."]
-position = Vector2(435, 648)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(134, 6)
-shape = SubResource("RectangleShape2D_orlac")
-
-[node name="Sprite2D" type="Sprite2D" parent="ground/CollisionShape2D"]
-
-[node name="ground2" type="StaticBody2D" parent="."]
-position = Vector2(569, -22)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(1, 2)
-shape = SubResource("RectangleShape2D_k2cgs")
-
-[node name="Sprite2D" type="Sprite2D" parent="ground2/CollisionShape2D"]
-
-[node name="ground3" type="StaticBody2D" parent="."]
-position = Vector2(1160, 554)
-
-[node name="CollisionShape2D_3" type="CollisionShape2D" parent="ground3"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-14, -230)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_pjx8v")
-
-[node name="Sprite2D" type="Sprite2D" parent="ground3/CollisionShape2D_3"]
-
-[node name="ground4" type="StaticBody2D" parent="."]
-position = Vector2(46, 485)
-
-[node name="CollisionShape2D_3" type="CollisionShape2D" parent="ground4"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-42.0001, -160.413)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_5u8mi")
-
-[node name="Sprite2D" type="Sprite2D" parent="ground4/CollisionShape2D_3"]
